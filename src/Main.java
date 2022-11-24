@@ -3,47 +3,47 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
 /*
-        Цель задания:
-           Научиться сортировать и искать элементы в коллекциях.
-        Что нужно сделать
-           1. Напишите генератор «красивых» автомобильных номеров и методы поиска элементов в коллекциях:
-             	прямым перебором по ArrayList,
-             	бинарным поиском по сортированному ArrayList,
-             	поиском в HashSet,
-             	поиском в TreeSet.
-           2. Измерьте и сравните длительность каждого метода поиска.
-                Формат вывода результатов поиска:
-                Поиск перебором: номер найден/не найден, поиск занял 34нс
-                Бинарный поиск: номер найден/не найден, поиск занял 34нс
-                Поиск в HashSet: номер найден/не найден, поиск занял 34нс
-                Поиск в TreeSet: номер найден/не найден, поиск занял 34нс
-           3. Напишите в форме ответа, какой поиск — самый быстрый, а какой — самый медленный.
+        Р¦РµР»СЊ Р·Р°РґР°РЅРёСЏ:
+           РќР°СѓС‡РёС‚СЊСЃСЏ СЃРѕСЂС‚РёСЂРѕРІР°С‚СЊ Рё РёСЃРєР°С‚СЊ СЌР»РµРјРµРЅС‚С‹ РІ РєРѕР»Р»РµРєС†РёСЏС….
+        Р§С‚Рѕ РЅСѓР¶РЅРѕ СЃРґРµР»Р°С‚СЊ
+           1. РќР°РїРёС€РёС‚Рµ РіРµРЅРµСЂР°С‚РѕСЂ В«РєСЂР°СЃРёРІС‹С…В» Р°РІС‚РѕРјРѕР±РёР»СЊРЅС‹С… РЅРѕРјРµСЂРѕРІ Рё РјРµС‚РѕРґС‹ РїРѕРёСЃРєР° СЌР»РµРјРµРЅС‚РѕРІ РІ РєРѕР»Р»РµРєС†РёСЏС…:
+             	РїСЂСЏРјС‹Рј РїРµСЂРµР±РѕСЂРѕРј РїРѕ ArrayList,
+             	Р±РёРЅР°СЂРЅС‹Рј РїРѕРёСЃРєРѕРј РїРѕ СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅРѕРјСѓ ArrayList,
+             	РїРѕРёСЃРєРѕРј РІ HashSet,
+             	РїРѕРёСЃРєРѕРј РІ TreeSet.
+           2. РР·РјРµСЂСЊС‚Рµ Рё СЃСЂР°РІРЅРёС‚Рµ РґР»РёС‚РµР»СЊРЅРѕСЃС‚СЊ РєР°Р¶РґРѕРіРѕ РјРµС‚РѕРґР° РїРѕРёСЃРєР°.
+                Р¤РѕСЂРјР°С‚ РІС‹РІРѕРґР° СЂРµР·СѓР»СЊС‚Р°С‚РѕРІ РїРѕРёСЃРєР°:
+                РџРѕРёСЃРє РїРµСЂРµР±РѕСЂРѕРј: РЅРѕРјРµСЂ РЅР°Р№РґРµРЅ/РЅРµ РЅР°Р№РґРµРЅ, РїРѕРёСЃРє Р·Р°РЅСЏР» 34РЅСЃ
+                Р‘РёРЅР°СЂРЅС‹Р№ РїРѕРёСЃРє: РЅРѕРјРµСЂ РЅР°Р№РґРµРЅ/РЅРµ РЅР°Р№РґРµРЅ, РїРѕРёСЃРє Р·Р°РЅСЏР» 34РЅСЃ
+                РџРѕРёСЃРє РІ HashSet: РЅРѕРјРµСЂ РЅР°Р№РґРµРЅ/РЅРµ РЅР°Р№РґРµРЅ, РїРѕРёСЃРє Р·Р°РЅСЏР» 34РЅСЃ
+                РџРѕРёСЃРє РІ TreeSet: РЅРѕРјРµСЂ РЅР°Р№РґРµРЅ/РЅРµ РЅР°Р№РґРµРЅ, РїРѕРёСЃРє Р·Р°РЅСЏР» 34РЅСЃ
+           3. РќР°РїРёС€РёС‚Рµ РІ С„РѕСЂРјРµ РѕС‚РІРµС‚Р°, РєР°РєРѕР№ РїРѕРёСЃРє вЂ” СЃР°РјС‹Р№ Р±С‹СЃС‚СЂС‹Р№, Р° РєР°РєРѕР№ вЂ” СЃР°РјС‹Р№ РјРµРґР»РµРЅРЅС‹Р№.
 */
-        //Заполнить сортированный ArrayList номерами = 2млн
+        //Р—Р°РїРѕР»РЅРёС‚СЊ СЃРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹Р№ ArrayList РЅРѕРјРµСЂР°РјРё = 2РјР»РЅ
         ArrayList<String> ltArrayList = setArrayList();
 
-        //Добавить наш массив в TreeSet
+        //Р”РѕР±Р°РІРёС‚СЊ РЅР°С€ РјР°СЃСЃРёРІ РІ TreeSet
         TreeSet<String> ltTreeSet = new TreeSet<>(ltArrayList);
 
-        //Добавить наш массив в TreeSet
+        //Р”РѕР±Р°РІРёС‚СЊ РЅР°С€ РјР°СЃСЃРёРІ РІ TreeSet
         HashSet<String> ltHashSet = new HashSet<>(ltArrayList);
 
         Scanner loScanner = new Scanner(System.in);
 
         for (; ; ) {
-            System.out.println("Введите автомобильный красивый номер в формате A001AA01 из регионов: 01 - 02");
+            System.out.println("Р’РІРµРґРёС‚Рµ Р°РІС‚РѕРјРѕР±РёР»СЊРЅС‹Р№ РєСЂР°СЃРёРІС‹Р№ РЅРѕРјРµСЂ РІ С„РѕСЂРјР°С‚Рµ A001AA01 РёР· СЂРµРіРёРѕРЅРѕРІ: 01 - 02");
             String lvNumberAuto = loScanner.nextLine();
 
-            //Поиск перебором
+            //РџРѕРёСЃРє РїРµСЂРµР±РѕСЂРѕРј
             searchSimple(ltArrayList, lvNumberAuto);
 
-            //Бинарный поиск
+            //Р‘РёРЅР°СЂРЅС‹Р№ РїРѕРёСЃРє
             searchBinary(ltArrayList, lvNumberAuto);
 
-            //Поиск в TreeSet
+            //РџРѕРёСЃРє РІ TreeSet
             searchTreeSet(ltTreeSet, lvNumberAuto);
 
-            //Поиск в HashSet
+            //РџРѕРёСЃРє РІ HashSet
             searchHashSet(ltHashSet, lvNumberAuto);
         }
     }
@@ -51,11 +51,11 @@ public class Main {
     private static ArrayList<String> setArrayList() {
         ArrayList<String> rtArrayList = new ArrayList<>();
 
-        //Сортированный массив букв
+        //РЎРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹Р№ РјР°СЃСЃРёРІ Р±СѓРєРІ
         String[] ltAlphabet = {"C", "M", "T", "B", "A", "P", "O", "H", "E", "Y"};
         Arrays.sort(ltAlphabet);
 
-        //Сортированный массив цифр
+        //РЎРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹Р№ РјР°СЃСЃРёРІ С†РёС„СЂ
         String[] ltDigitsFirst = new String[1000];
         for (int i = 0; i < ltDigitsFirst.length; i++) {
             if (i < 100) {
@@ -65,7 +65,7 @@ public class Main {
             }
         }
 
-        //Сортированный массив цифр - регион
+        //РЎРѕСЂС‚РёСЂРѕРІР°РЅРЅС‹Р№ РјР°СЃСЃРёРІ С†РёС„СЂ - СЂРµРіРёРѕРЅ
         String[] ltDigitsRegion = new String[200];
         for (int i = 0; i < ltDigitsRegion.length; i++) {
             if (i < 100) {
@@ -75,7 +75,7 @@ public class Main {
             }
         }
 
-        //Генерация номерных знаков
+        //Р“РµРЅРµСЂР°С†РёСЏ РЅРѕРјРµСЂРЅС‹С… Р·РЅР°РєРѕРІ
         for (int m = 0; m < ltDigitsRegion.length; m++) {
             if (m == 2) {
                 return rtArrayList;
@@ -93,15 +93,15 @@ public class Main {
         return rtArrayList;
     }
 
-    /* Поиск перебором */
+    /* РџРѕРёСЃРє РїРµСЂРµР±РѕСЂРѕРј */
     private static void searchSimple(ArrayList<String> itArrayList,
                                      String ivNumberAuto) {
         long lvStart = System.nanoTime();
         if (itArrayList.contains(ivNumberAuto)) {
             long lvDuration = System.nanoTime() - lvStart;
-            System.out.println("Поиск перебором: " + ivNumberAuto + " найден, поиск занял " + lvDuration);
+            System.out.println("РџРѕРёСЃРє РїРµСЂРµР±РѕСЂРѕРј: " + ivNumberAuto + " РЅР°Р№РґРµРЅ, РїРѕРёСЃРє Р·Р°РЅСЏР» " + lvDuration);
         } else {
-            System.out.println("Поиск перебором: " + ivNumberAuto + " не найден");
+            System.out.println("РџРѕРёСЃРє РїРµСЂРµР±РѕСЂРѕРј: " + ivNumberAuto + " РЅРµ РЅР°Р№РґРµРЅ");
         }
     }
 
@@ -112,9 +112,9 @@ public class Main {
         int lvIndex = Collections.binarySearch(itArrayList, ivNumberAuto);
         if (lvIndex >= 0) {
             long lvDuration = System.nanoTime() - lvStart;
-            System.out.println("Бинарный поиск: " + ivNumberAuto + " найден, поиск занял " + lvDuration);
+            System.out.println("Р‘РёРЅР°СЂРЅС‹Р№ РїРѕРёСЃРє: " + ivNumberAuto + " РЅР°Р№РґРµРЅ, РїРѕРёСЃРє Р·Р°РЅСЏР» " + lvDuration);
         } else {
-            System.out.println("Бинарный поиск: " + ivNumberAuto + " не найден");
+            System.out.println("Р‘РёРЅР°СЂРЅС‹Р№ РїРѕРёСЃРє: " + ivNumberAuto + " РЅРµ РЅР°Р№РґРµРЅ");
         }
     }
 
@@ -123,9 +123,9 @@ public class Main {
         long lvStart = System.nanoTime();
         if (itTreeSet.contains(ivNumberAuto)) {
             long lvDuration = System.nanoTime() - lvStart;
-            System.out.println("Поиск TreeSet: " + ivNumberAuto + " найден, поиск занял " + lvDuration);
+            System.out.println("РџРѕРёСЃРє TreeSet: " + ivNumberAuto + " РЅР°Р№РґРµРЅ, РїРѕРёСЃРє Р·Р°РЅСЏР» " + lvDuration);
         } else {
-            System.out.println("Поиск TreeSet: " + ivNumberAuto + " не найден");
+            System.out.println("РџРѕРёСЃРє TreeSet: " + ivNumberAuto + " РЅРµ РЅР°Р№РґРµРЅ");
         }
     }
 
@@ -134,9 +134,9 @@ public class Main {
         long lvStart = System.nanoTime();
         if (itHashSet.contains(ivNumberAuto)) {
             long lvDuration = System.nanoTime() - lvStart;
-            System.out.println("Поиск HashSet: " + ivNumberAuto + " найден, поиск занял " + lvDuration);
+            System.out.println("РџРѕРёСЃРє HashSet: " + ivNumberAuto + " РЅР°Р№РґРµРЅ, РїРѕРёСЃРє Р·Р°РЅСЏР» " + lvDuration);
         } else {
-            System.out.println("Поиск HashSet: " + ivNumberAuto + " не найден");
+            System.out.println("РџРѕРёСЃРє HashSet: " + ivNumberAuto + " РЅРµ РЅР°Р№РґРµРЅ");
         }
     }
 }
